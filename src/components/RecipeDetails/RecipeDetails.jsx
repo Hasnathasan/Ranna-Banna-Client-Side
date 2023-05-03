@@ -21,7 +21,7 @@ const RecipeDetails = () => {
        </div>
       </div>
       <h1 className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r to-orange-400 from-red-500 text-center">RECIPES</h1>
-      <div className="grid grid-cols-2 justify-center items-center">
+      <div className="grid grid-cols-2 justify-center">
         {
           recipes.map(recipe => <Recipe key={recipes.indexOf(recipe)} recipe={recipe}></Recipe>)
         }

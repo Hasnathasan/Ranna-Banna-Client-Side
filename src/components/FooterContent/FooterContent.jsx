@@ -5,9 +5,9 @@ import { FaFacebook, FaGithub, FaGoogle, FaInstagram, FaTwitter } from 'react-ic
 const FooterContent = () => {
     return (
         <div className='bg-slate-800'>
-            <Footer bgDark={false} className='bg-slate-800 border-none container mx-auto'>
+            <Footer bgDark={false} className='border-none container mx-auto'>
   <div className="w-full">
-    <div className="grid w-full grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
+    <div className="grid w-full bg-slate-800 grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
       <div>
         <Footer.Title title="Company" />
         <Footer.LinkGroup col={true}>
