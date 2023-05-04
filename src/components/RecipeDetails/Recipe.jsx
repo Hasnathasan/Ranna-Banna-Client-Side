@@ -2,36 +2,12 @@ import { Button } from "flowbite-react";
 import React from "react";
 import {  FaBookmark, FaCheckCircle, FaRegStar, FaStar, FaStarHalf, FaStarHalfAlt } from "react-icons/fa";
 import Rating from "react-rating";
-import { ToastContainer, toast } from "react-toastify";
 
-const Recipe = ({ recipe }) => {
+const Recipe = ({ recipe, showToast }) => {
   const { image, name, ingredients, rating, cooking_method } = recipe;
-  const notify = () => {
-    toast('🦄 Wow so easy!', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
-  }
   return (
     <div className="p-10">
-      <ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                  theme="light"
-                />
+      
                 
                 
       <div className="card card-compact bg-base-100 shadow-xl">
@@ -48,12 +24,13 @@ const Recipe = ({ recipe }) => {
             <Button
                 outline={true}
                 gradientDuoTone="pinkToOrange"
-                onClick={notify}
+                onClick={showToast}
               >
                 <span className="font-semibold flex items-center text-slate-600 hover:text-white">
                   <FaBookmark></FaBookmark>
                 </span>
               </Button>
+              
               
           </div>
           <div className="flex gap-2 items-center">
@@ -77,7 +54,7 @@ const Recipe = ({ recipe }) => {
           <p className="text-lg font-medium text-gray-600">{cooking_method}</p>
         </div>
       </div>
-      <ToastContainer />
+      
     </div>
   );
 };

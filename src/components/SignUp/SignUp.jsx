@@ -14,7 +14,10 @@ function SignUp() {
     const password = event.target.password.value;
     const name = event.target.name.value;
     const photo = event.target.photo.value;
-    console.log(email, password, name, photo);
+    if(!/.{6,}/.test(password)){
+      setError("Password should be 6 in character")
+      return;
+    }
     setError("");
     setSuccess("");
     signup( email, password )
