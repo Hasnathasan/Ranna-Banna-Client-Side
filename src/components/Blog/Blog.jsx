@@ -1,61 +1,61 @@
-import React from 'react';
+import React from "react";
 
 const Blog = () => {
-    return (
-        <div>
-      <div className="bg-violet-50 py-10">
+  return (
+    <div className="bg-violet-50 container mx-auto">
+      <div className="py-10">
         <h2 className="text-3xl text-center font-bold">Blog Section</h2>
       </div>
       <div className="my-8 p-4 sm:p-8 rounded">
         <h2 className="text-2xl font-bold mb-2">
-          When should I use Context API?
+          Describe differences between uncontrolled and controlled components?
         </h2>
         <p className="text-lg font-medium mb-10">
-          Ans: The React Context API is used to share data between components
-          that are not directly connected in the component tree. It's useful for
-          scenarios such as theming, user authentication, language selection,
-          and global state. If you find yourself passing props down through
-          multiple levels of components, the Context API can help you avoid prop
-          drilling.
+          Ans: Uncontrolled components are typically external to a system and
+          operate independently without direct manipulation or influence.
+          Controlled components, on the other hand, are integral to a system and
+          can be directly managed or manipulated by the system. Examples of
+          uncontrolled components include weather, user behavior, and external
+          APIs, while controlled components may include software modules,
+          hardware devices, and database systems.
         </p>
 
         <h2 className="text-2xl font-bold mb-2">
-          What is custom hook in react?
+          How to validate React props using PropTypes?
         </h2>
         <p className="text-lg font-medium mb-10">
-          Ans: In React, a custom hook is a function that allows you to reuse
-          stateful logic across multiple components. It's a way to extract
-          stateful logic from a component so it can be used in other components
-          without duplicating code. Custom hooks use the same hooks as regular
-          components, such as useState and useEffect, but can be shared and
-          reused like regular functions.
+          Ans: To validate React props using PropTypes, use the PropTypes
+          library and define the expected prop types and validation rules in the
+          `propTypes` property of a component. For example, use `string` type
+          for a `text` prop and specify it as required using the `isRequired`
+          method. If the wrong type or a required prop is not provided,
+          PropTypes will throw an error. Other types and validation rules are
+          also available.
         </p>
 
-        <h2 className="text-2xl font-bold mb-2">What is useRef in react?</h2>
+        <h2 className="text-2xl font-bold mb-2">
+          What is the main difference between nodejs and express js?
+        </h2>
         <p className="text-lg font-medium mb-10">
-          Ans: In React, useRef is a hook that returns a mutable ref object that
-          persists throughout the component's lifecycle. The ref object can be
-          used to reference a DOM element or a value, and can be updated without
-          triggering a re-render of the component. This is useful for managing
-          focus, measuring elements, or accessing values in event handlers. The
-          ref can also be used to share mutable data between components or
-          across renders of a single component.
+          Ans: NodeJS is the package, which provides the JavaScript run-time
+          environment, whereas Express is a framework that sits on top of NodeJS
+          and helps us to handle requests and responses
         </p>
 
-        <h2 className="text-2xl font-bold mb-2">What is useMemo in react?</h2>
+        <h2 className="text-2xl font-bold mb-2">
+          What is a custom hook, and why will you create a custom hook?
+        </h2>
         <p className="text-lg font-medium mb-10">
-          Ans: In React, useMemo is a hook that can help optimize performance by
-          memoizing the result of a function. It takes a function and a
-          dependency array and returns a memoized value. The function is only
-          re-executed when one of the dependencies in the array changes,
-          otherwise the memoized value is returned. This can be useful for
-          expensive calculations or rendering large lists. By memoizing the
-          result, unnecessary re-renders can be avoided and the overall
-          performance of the application can be improved.
+          Ans: A custom hook is a reusable function in React that encapsulates
+          stateful logic and can be shared across multiple components. It allows
+          you to abstract complex logic into a separate function and use it in
+          different parts of your application. You might create a custom hook to
+          simplify and reuse code, improve code organization, and make your
+          components more readable and maintainable
         </p>
       </div>
     </div>
-    );
+  );
 };
 
 export default Blog;

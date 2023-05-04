@@ -16,22 +16,11 @@ const NavigationBar = () => {
         </div>
         <div className="flex gap-3 md:order-2">
           {user ? (
-            <>
-              <div>
-                <div
-                  id="tooltip-jese"
-                  role="tooltip"
-                  className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-                >
-                  hii khan
-                  <div className="tooltip-arrow" data-popper-arrow></div>
+            <div className="flex items-center gap-2">
+              <div className="avatar rounded-full tooltip tooltip-bottom" data-tip={user.displayName}>
+                <div className="w-10 md:w-14 rounded-full">
+                  <img src={user.photoURL} />
                 </div>
-                <img
-                  data-tooltip-target="tooltip-jese"
-                  className="w-10 h-10 rounded"
-                  src={user.photoURL}
-                  alt="Medium avatar"
-                />
               </div>
               <Button
                 onClick={signout}
@@ -40,7 +29,7 @@ const NavigationBar = () => {
               >
                 Logout
               </Button>
-            </>
+            </div>
           ) : (
             <Link to="/login">
               <Button
@@ -52,38 +41,32 @@ const NavigationBar = () => {
             </Link>
           )}
           <Navbar.Toggle />
-          
         </div>
         <Navbar.Collapse>
           <li>
             <NavLink
-                    to="/"
-                    className={({ isActive, isPending }) =>
-                      isActive
-                        ? "text-orange-500"
-                        : isPending
-                        ? "pending"
-                        : ""
-                    }
-                  >
-                    <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">Home</span>
-          </NavLink>
+              to="/"
+              className={({ isActive, isPending }) =>
+                isActive ? "text-orange-500" : isPending ? "pending" : ""
+              }
+            >
+              <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">
+                Home
+              </span>
+            </NavLink>
           </li>
-        <li>
-          <NavLink
-                    to="/blog"
-                    className={({ isActive, isPending }) =>
-                      isActive
-                        ? "text-orange-500"
-                        : isPending
-                        ? "pending"
-                        : ""
-                    }
-                  >
-                    <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">Blog</span>
-          </NavLink>
-        </li>
-          
+          <li>
+            <NavLink
+              to="/blog"
+              className={({ isActive, isPending }) =>
+                isActive ? "text-orange-500" : isPending ? "pending" : ""
+              }
+            >
+              <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">
+                Blog
+              </span>
+            </NavLink>
+          </li>
         </Navbar.Collapse>
       </Navbar>
     </div>
