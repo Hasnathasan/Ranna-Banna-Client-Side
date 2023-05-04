@@ -5,6 +5,8 @@ import Login from "../components/Login/Login";
 import SignUp from "../components/SignUp/SignUp";
 import Chefs from "../components/Chefs/Chefs";
 import RecipeDetails from "../components/RecipeDetails/RecipeDetails";
+import Blog from "../components/Blog/Blog";
+import PriveteRoute from "../components/PrivateRoute/PriveteRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,9 +26,13 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+            {
                 path: '/chef/:id',
-                element: <RecipeDetails></RecipeDetails>,
-                loader: ({params}) => fetch(`http://localhost:3000/chefs/${params.id}`)
+                element: <PriveteRoute><RecipeDetails></RecipeDetails></PriveteRoute>,
+                loader: ({params}) => fetch(`https://chef-recipe-server-side-weld.vercel.app/chefs/${params.id}`)
             }
         ]
     },

@@ -1,5 +1,6 @@
+import { Button } from "flowbite-react";
 import React from "react";
-import {  FaCheckCircle, FaRegStar, FaStar, FaStarHalf, FaStarHalfAlt } from "react-icons/fa";
+import {  FaBookmark, FaCheckCircle, FaRegStar, FaStar, FaStarHalf, FaStarHalfAlt } from "react-icons/fa";
 import Rating from "react-rating";
 
 const Recipe = ({ recipe }) => {
@@ -15,7 +16,17 @@ const Recipe = ({ recipe }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="text-4xl font-bold text-gray-700 text-transparent bg-clip-text bg-gradient-to-r to-orange-400 from-red-500">{name}</h2>
+          <div className="flex justify-between items-center">
+            <h2 className="text-4xl font-bold text-gray-700 text-transparent bg-clip-text bg-gradient-to-r to-orange-400 from-red-500">{name}</h2>
+            <Button
+                outline={true}
+                gradientDuoTone="pinkToOrange"
+              >
+                <span className="font-semibold flex items-center text-slate-600 hover:text-white">
+                  <FaBookmark></FaBookmark>
+                </span>
+              </Button>
+          </div>
           <div className="flex gap-2 items-center">
             <Rating
               placeholderRating={rating}

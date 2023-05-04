@@ -1,35 +1,103 @@
 import { Button, Navbar } from "flowbite-react";
-import React from "react";
-import logo from '../../assets/logo.png'
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import logo from "../../assets/logo.png";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const NavigationBar = () => {
+  const { user, signout } = useContext(AuthContext);
   return (
     <div className="container mx-auto">
       <Navbar fluid={true} rounded={true}>
-        <div>
-          <Link to='/'>
-            <img src={logo} alt="Logo" />
+        <div className="w-32 md:w-44">
+          <Link to="/">
+            <img className="w-full" src={logo} alt="Logo" />
           </Link>
         </div>
-        <div className="flex md:order-2">
-        <Link to='/login'>
-        <Button className="py-1 font-semibold" gradientDuoTone="pinkToOrange">
-          Login
-        </Button>
-        </Link>
+        <div className="flex gap-3 md:order-2">
+          {user ? (
+            <>
+              <div>
+                <div
+                  id="tooltip-jese"
+                  role="tooltip"
+                  className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+                >
+                  hii khan
+                  <div className="tooltip-arrow" data-popper-arrow></div>
+                </div>
+                <img
+                  data-tooltip-target="tooltip-jese"
+                  className="w-10 h-10 rounded"
+                  src={user.photoURL}
+                  alt="Medium avatar"
+                />
+              </div>
+              <Button
+                onClick={signout}
+                className="py-1 font-semibold"
+                gradientDuoTone="pinkToOrange"
+              >
+                Logout
+              </Button>
+            </>
+          ) : (
+            <Link to="/login">
+              <Button
+                className="py-1 font-semibold"
+                gradientDuoTone="pinkToOrange"
+              >
+                Login
+              </Button>
+            </Link>
+          )}
           <Navbar.Toggle />
+          
         </div>
         <Navbar.Collapse>
-          <Navbar.Link className="text-lg" href="/navbars" active={true}>
-            Home
-          </Navbar.Link>
-          <Navbar.Link className="text-lg" href="/navbars">
-            About
-          </Navbar.Link>
-          <Navbar.Link className="text-lg" href="/navbars">
-            Career
-          </Navbar.Link>
+          <li>
+            <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                        ? "pending"
+                        : ""
+                    }
+                  >
+                    Home
+          </NavLink>
+          </li>
+        <li>
+          <NavLink
+                    to="/blog"
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                        ? "pending"
+                        : ""
+                    }
+                  >
+                    Blog
+          </NavLink>
+        </li>
+          <li>
+            <NavLink
+                    to="/signup"
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                        ? "pending"
+                        : ""
+                    }
+                  >
+                    Signup
+          </NavLink>
+          </li>
+          
         </Navbar.Collapse>
       </Navbar>
     </div>
