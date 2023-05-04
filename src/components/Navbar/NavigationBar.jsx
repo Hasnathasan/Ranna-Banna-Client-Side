@@ -60,13 +60,13 @@ const NavigationBar = () => {
                     to="/"
                     className={({ isActive, isPending }) =>
                       isActive
-                        ? "active"
+                        ? "text-orange-500"
                         : isPending
                         ? "pending"
                         : ""
                     }
                   >
-                    Home
+                    <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">Home</span>
           </NavLink>
           </li>
         <li>
@@ -74,29 +74,15 @@ const NavigationBar = () => {
                     to="/blog"
                     className={({ isActive, isPending }) =>
                       isActive
-                        ? "active"
+                        ? "text-orange-500"
                         : isPending
                         ? "pending"
                         : ""
                     }
                   >
-                    Blog
+                    <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">Blog</span>
           </NavLink>
         </li>
-          <li>
-            <NavLink
-                    to="/signup"
-                    className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active"
-                        : isPending
-                        ? "pending"
-                        : ""
-                    }
-                  >
-                    Signup
-          </NavLink>
-          </li>
           
         </Navbar.Collapse>
       </Navbar>

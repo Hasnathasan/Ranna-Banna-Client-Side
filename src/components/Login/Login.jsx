@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Button } from "flowbite-react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
@@ -8,7 +8,11 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 const Login = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || "/";
   const { user, login, gitLogin, googleLogin } = useContext(AuthContext);
+
   const submitLoginData = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -20,28 +24,37 @@ const Login = () => {
       .then(() => {
         setSuccess("User logged in succecfully");
         event.target.reset();
+        navigate(from , {replace: true})
       })
       .catch((error) => {
         setError(error.message);
       });
   };
+
+
   const handlegoogleLogin = () => {
     googleLogin()
-      .then(() => {})
+      .then(() => {
+        setSuccess("User logged in succecfully");
+        navigate(from , {replace: true})
+      })
       .catch(error => {
         setError(error.message)
       })
   }
+
+
   const handlegitLogin = () => {
     gitLogin()
       .then(() => {
-
+        setSuccess("User logged in succecfully");
+        navigate(from , {replace: true})
       })
       .catch(error => {
         setError(error)
       })
   }
-  console.log(user);
+  
   return (
     <div className="bg-gray-50 ">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">

@@ -5,10 +5,11 @@ import { Button } from "flowbite-react";
 const HomeBanner = () => {
   return (
     <div
-      className="md:h-screen bg-center bg-cover rounded h-56 py-10 px-2 md:p-10 mb-24"
-      style={{ backgroundImage: `url(${bg})` }}
+      className="bg-center md:h-larg flex justify-end items-center bg-cover rounded h-64 py-10 px-2 md:p-10 mb-24"
+      style={{ backgroundImage: `url(${bg})`}}
     >
-      <div className="text-right mt-2 md:mt-32">
+      <div>
+        <div className="text-right">
         <h3 className="text-xl md:text-5xl font-bold italic">Find your</h3>
         <h1 className="text-2xl md:text-8xl italic font-bold text-gray-700 text-transparent bg-clip-text bg-gradient-to-r to-orange-400 from-red-500">
           FOODDY RECIPE
@@ -23,6 +24,8 @@ const HomeBanner = () => {
           See Recipes
         </span>
       </Button>
+      </div>
+      
     </div>
   );
 };
