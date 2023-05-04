@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Chef from "./Chef";
 import HomeBanner from "../HomeBanner/HomeBanner";
 import { Spinner } from "flowbite-react";
+import AccordianSection from "../AccordianSection/AccoudeanSection";
+import Desserts from "../Desserts/Desserts";
 
 const Chefs = () => {
   const [chefs, setChefs] = useState(null);
@@ -27,6 +29,9 @@ const Chefs = () => {
           <Spinner aria-label="Extra large spinner example" size="xl" />
         </div>
       )}
+
+      <AccordianSection></AccordianSection>
+      <Desserts></Desserts>
     </div>
   );
 };
