@@ -35,7 +35,7 @@ const RecipeDetails = () => {
   return (
     <div className="container mx-auto">
       <div className="flex flex-col text-center w-1/2 mx-auto my-14 items-center">
-        <LazyLoad>
+        <LazyLoad height={260}>
           <img className="w-96 rounded-full" src={picture} alt="" />
         </LazyLoad>
         <h2 className="text-4xl mt-3 font-bold text-transparent bg-clip-text bg-gradient-to-r to-orange-400 from-red-500">
