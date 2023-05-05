@@ -21,7 +21,7 @@ const Recipe = ({ recipe, notify }) => {
             <LazyLoad height={320}>
             <figure>
                   <img
-                  className="w-full rounded-t-3xl h-80"
+                  className="w-full rounded-t-2xl h-80"
                   src={image}
                   alt={name}
                 />
