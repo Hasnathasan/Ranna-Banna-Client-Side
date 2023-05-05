@@ -2,7 +2,6 @@ import { Accordion } from "flowbite-react";
 import React from "react";
 
 const AccordianSection = () => {
-  
   return (
     <div className="my-28">
       <h1 className="text-xl md:text-4xl my-7 font-bold text-transparent bg-clip-text bg-gradient-to-r to-orange-400 from-red-500 text-center">
