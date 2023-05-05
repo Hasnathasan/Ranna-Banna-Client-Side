@@ -1,30 +1,42 @@
 import { Button } from "flowbite-react";
-import React from "react";
+import React, { useState } from "react";
 import {  FaBookmark, FaCheckCircle, FaRegStar, FaStar, FaStarHalf, FaStarHalfAlt } from "react-icons/fa";
+import LazyLoad from "react-lazy-load";
 import Rating from "react-rating";
 
-const Recipe = ({ recipe, showToast }) => {
+const Recipe = ({ recipe, notify }) => {
   const { image, name, ingredients, rating, cooking_method } = recipe;
+  const [isDisable, setIsDisable] = useState(false)
+  const showNotifyandDisable = () => {
+    notify()
+    setIsDisable(true)
+    
+  }
   return (
     <div className="p-10">
       
                 
                 
       <div className="card card-compact bg-base-100 shadow-xl">
-        <figure>
-          <img
-            className="w-full h-80"
-            src={image}
-            alt={name}
-          />
-        </figure>
+            <LazyLoad height={320}>
+            <figure>
+                  <img
+                  className="w-full rounded-t-3xl h-80"
+                  src={image}
+                  alt={name}
+                />
+                
+            </figure>
+            </LazyLoad>
         <div className="card-body">
           <div className="flex justify-between items-center">
             <h2 className="text-4xl font-bold text-gray-700 text-transparent bg-clip-text bg-gradient-to-r to-orange-400 from-red-500">{name}</h2>
             <Button
                 outline={true}
                 gradientDuoTone="pinkToOrange"
-                onClick={showToast}
+                onClick={showNotifyandDisable}
+                id="toastbtn"
+                className={`${isDisable ? "hidden" : ""}`}
               >
                 <span className="font-semibold flex items-center text-slate-600 hover:text-white">
                   <FaBookmark></FaBookmark>

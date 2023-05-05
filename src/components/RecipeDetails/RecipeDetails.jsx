@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import Recipe from "./Recipe";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LazyLoad from "react-lazy-load";
 
 const RecipeDetails = () => {
   const chef = useLoaderData();
@@ -18,9 +19,7 @@ const RecipeDetails = () => {
     bio,
     recipes,
   } = chef;
-  const showToast = () => {
-    notify();
-  };
+  
   const notify = () => {
     toast.success("Recipe added to Favourite", {
       position: "top-right",
@@ -36,7 +35,9 @@ const RecipeDetails = () => {
   return (
     <div className="container mx-auto">
       <div className="flex flex-col text-center w-1/2 mx-auto my-14 items-center">
+      <LazyLoad height={320}>
         <img className="w-96 rounded-full" src={picture} alt="" />
+      </LazyLoad>
         <h2 className="text-4xl mt-3 font-bold text-transparent bg-clip-text bg-gradient-to-r to-orange-400 from-red-500">
           {name}
         </h2>
@@ -59,7 +60,7 @@ const RecipeDetails = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 justify-center">
         {recipes.map((recipe) => (
           <Recipe
-            showToast={showToast}
+            notify={notify}
             key={recipes.indexOf(recipe)}
             recipe={recipe}
           ></Recipe>
