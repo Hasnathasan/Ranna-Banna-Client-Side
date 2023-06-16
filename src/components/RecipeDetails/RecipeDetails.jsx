@@ -5,8 +5,10 @@ import Recipe from "./Recipe";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LazyLoad from "react-lazy-load";
+import useTitle from "../../hooks/useTitle";
 
 const RecipeDetails = () => {
+  useTitle("Recipe Details")
   const chef = useLoaderData();
   console.log(chef);
   const {

@@ -1,8 +1,10 @@
 import React from "react";
 import bg from "../../assets/bg.jpg";
 import { Button } from "flowbite-react";
+import useTitle from "../../hooks/useTitle";
 
 const HomeBanner = () => {
+  useTitle("home")
   return (
     <div
       className="bg-center md:h-larg flex justify-end items-center bg-cover rounded h-64 py-10 px-2 md:p-10 mb-24"

@@ -33,6 +33,10 @@ const router = createBrowserRouter([
                 path: '/chef/:id',
                 element: <PriveteRoute><RecipeDetails></RecipeDetails></PriveteRoute>,
                 loader: ({params}) => fetch(`https://chef-recipe-server-side-weld.vercel.app/chefs/${params.id}`)
+            },
+            {
+                path: '*',
+                element: <ErrorPage></ErrorPage>
             }
         ]
     },

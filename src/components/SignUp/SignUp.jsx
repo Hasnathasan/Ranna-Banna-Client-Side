@@ -3,8 +3,10 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import useTitle from "../../hooks/useTitle";
 
 function SignUp() {
+  useTitle("Sign up")
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const { signup, signout, user } = useContext(AuthContext);

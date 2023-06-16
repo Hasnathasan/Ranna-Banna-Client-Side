@@ -4,8 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Button } from "flowbite-react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
+  useTitle('login')
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate()
