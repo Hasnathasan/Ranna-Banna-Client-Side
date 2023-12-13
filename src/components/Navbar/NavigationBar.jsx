@@ -17,7 +17,10 @@ const NavigationBar = () => {
         <div className="flex gap-3 md:order-2">
           {user ? (
             <div className="flex items-center gap-2">
-              <div className="avatar rounded-full tooltip tooltip-bottom" data-tip={user.displayName}>
+              <div
+                className="avatar rounded-full tooltip tooltip-bottom"
+                data-tip={user.displayName}
+              >
                 <div className="w-10 md:w-14 rounded-full">
                   <img src={user.photoURL} />
                 </div>

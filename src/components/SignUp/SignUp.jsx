@@ -6,7 +6,7 @@ import { updateProfile } from "firebase/auth";
 import useTitle from "../../hooks/useTitle";
 
 function SignUp() {
-  useTitle("Sign up")
+  useTitle("Sign up");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const { signup, signout, user } = useContext(AuthContext);
