@@ -7,6 +7,7 @@ import Chefs from "../components/Chefs/Chefs";
 import RecipeDetails from "../components/RecipeDetails/RecipeDetails";
 import Blog from "../components/Blog/Blog";
 import PriveteRoute from "../components/PrivateRoute/PriveteRoute";
+import ScrapingForm from "../components/Scraper/ScrapingForm";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/scraping',
+                element: <ScrapingForm></ScrapingForm>
             },
             {
                 path: '/chef/:id',
