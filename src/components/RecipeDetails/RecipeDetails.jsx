@@ -8,7 +8,7 @@ import LazyLoad from "react-lazy-load";
 import useTitle from "../../hooks/useTitle";
 
 const RecipeDetails = () => {
-  useTitle("Recipe Details")
+  useTitle("Recipe Details");
   const chef = useLoaderData();
   console.log(chef);
   const {
